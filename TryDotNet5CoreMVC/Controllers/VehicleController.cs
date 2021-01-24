@@ -23,13 +23,13 @@ namespace TryDotNet5CoreMVC.Controllers
         }
         public IActionResult Edit(int id)
         {
-            var vehicle = VehicleList.Where(std => std.ID == id).FirstOrDefault();
+            var vehicle = VehicleList.Where(v => v.ID == id).FirstOrDefault();
             return View(vehicle);
         }
         [HttpPost]
         public IActionResult Edit(Vehicle model)
         {
-            var vehicle = VehicleList.Where(std => std.ID == model.ID).FirstOrDefault();
+            var vehicle = VehicleList.Where(v => v.ID == model.ID).FirstOrDefault();
             vehicle.RegistrationNumber = model.RegistrationNumber;
             vehicle.Price = model.Price;
             return RedirectToAction("Index");
@@ -37,19 +37,19 @@ namespace TryDotNet5CoreMVC.Controllers
 
         public IActionResult Details(int id)
         {
-            var vehicle = VehicleList.Where(std => std.ID == id).FirstOrDefault();
+            var vehicle = VehicleList.Where(v => v.ID == id).FirstOrDefault();
             return View(vehicle);
         }
 
         public IActionResult Delete(int id)
         {
-            var vehicle = VehicleList.Where(std => std.ID == id).FirstOrDefault();
+            var vehicle = VehicleList.Where(v => v.ID == id).FirstOrDefault();
             return View(vehicle);
         }
         [HttpPost]
         public IActionResult Delete(Vehicle model)
         {
-            var vehicle = VehicleList.Where(std => std.ID == model.ID).FirstOrDefault();
+            var vehicle = VehicleList.Where(v => v.ID == model.ID).FirstOrDefault();
             VehicleList.Remove(vehicle);
             return RedirectToAction("Index");
         }
